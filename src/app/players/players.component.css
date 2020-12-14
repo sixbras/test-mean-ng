@@ -1,0 +1,16 @@
+#topbar {
+  text-align: center;
+  position: relative;
+  background-color: #e9e9e9;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 18px;
+}
+
+.align-left {
+  position: absolute;
+  left: 20px;
+}
+
+.pointer-link {
+  cursor: pointer;
+}

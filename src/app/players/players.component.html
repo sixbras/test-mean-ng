@@ -1,0 +1,15 @@
+<div id="topbar">
+    <span class="align-left"><a class="pointer-link" (click)="back()">&lt;back</a></span>{{teamName}}
+</div>
+<ul class="w3-ul w3-card-4">
+    <li class="w3-bar" *ngFor="let player of playerList$ | async">
+        <img src="{{player.thumbnail}}" class="w3-bar-item" style="width:120px">
+        <div class="w3-bar-item">
+            <span class="w3-large">{{player.name}}</span><br>
+            <span>{{player.position}}</span><br>
+            <span>Né le : {{player.born|date:'dd/MM/yyyy'}}</span><br>
+            <span *ngIf='player.signin'>Transfert
+                :{{player.signin.amount|currency:player.signin.currency:'symbol':'3.0'}}</span>
+        </div>
+    </li>
+</ul>

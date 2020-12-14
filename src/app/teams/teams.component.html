@@ -1,0 +1,26 @@
+<div class="topnav">
+    <div class="ng-autocomplete">
+        <ng-autocomplete [data]="leagues" searchKeyword='name' (selected)='selectEvent($event)'
+            (inputCleared)='onCleared($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
+            [placeHolder]="placeholder">
+        </ng-autocomplete>
+
+        <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+            <div>No leagues found...</div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template [ngIf]="showTeams">
+    <div class="w3-row-padding w3-margin-top">
+        <div class="w3-quarter" *ngFor="let team of teamList$ | async" (click)="redirectToPlayers(team._id,team.name)">
+            <div>
+                <img src="{{team.thumbnail}}" style="width:100%" alt="{{team.name}}">
+            </div>
+        </div>
+    </div>
+</ng-template>
